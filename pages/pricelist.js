@@ -26,7 +26,7 @@ export default function Prices({ priceList }) {
 	return (
 		<>
 			<Head>
-				<title>Next Salon | Price List</title>
+				<title>DM Barbershop | Price List</title>
 			</Head>
 			<div className='page-header'>
 				<h1 className='page-title'>Price List</h1>
