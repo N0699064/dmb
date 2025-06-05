@@ -17,7 +17,7 @@ export default function notFound() {
 	return (
 		<div>
 			<Head>
-				<title>Next Salon | 404</title>
+				<title>DM Barbershop | 404</title>
 			</Head>
 
 			<div className='grid page'>
