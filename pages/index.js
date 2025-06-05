@@ -5,6 +5,8 @@ import Testimonial from '../components/Testimonial';
 import Promo from '../components/Promo';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import PriceList from '../components/PriceList';
+import ServiceCard from '../components/ServiceCard';
+import CallToAction from '../components/CallToAction';
 
 
  export async function getStaticProps() {
@@ -21,22 +23,34 @@ import PriceList from '../components/PriceList';
         content_type: 'priceList', // Fetch priceList data
     });
 
+	const service = await client.getEntries({ content_type: 'service' });
+		  const page = await client.getEntries({
+			content_type: 'page',
+			limit: 1,
+			'fields.slug': 'services',
+		}); 
+		const cta = await client.getEntry('2cUo5vH15P37ppzrFeHoot');
+	
+
 	return {
 		props: {
 			testimonials: testimonial.items,
 			promo: promo.items,
 			priceList: priceList.items, // Pass priceList data as a prop
+			services: service.items,
+			page: page.items,
+			cta: cta,
 		},
 		revalidate: 1,
 	}; 
 } 
 
-export default function homePage({ testimonials, promo, priceList }) {
+export default function homePage({ testimonials, promo, priceList, services, page, cta }) {
 	return (
 		<>
 			 <Head>
 				<title>DM Barbershop | Home</title>
-			</Head> 
+			</Head>
 
 			 <div className='home-page'>
 				{promo.map((promo) => (
@@ -50,6 +64,17 @@ export default function homePage({ testimonials, promo, priceList }) {
 									))}
 								</div>
 							</div>
+
+				<div className='page'>
+									<div className='grid services'>
+										<div className='wrapper wrapper--services'>
+											{services.map((service) => (
+												<ServiceCard key={service.sys.id} service={service} />
+											))}
+											<CallToAction cta={cta} />
+										</div> 
+									</div>
+								</div>
 
 
 
