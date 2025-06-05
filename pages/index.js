@@ -4,8 +4,10 @@ import Head from 'next/head';
 import Testimonial from '../components/Testimonial';
 import Promo from '../components/Promo';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import PriceList from '../components/PriceList';
 
-export async function getStaticProps() {
+
+ export async function getStaticProps() {
 	const client = createClient({
 		space: process.env.CONTENTFUL_SPACE_ID,
 		accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -13,29 +15,44 @@ export async function getStaticProps() {
 
 	const promo = await client.getEntries({
 		content_type: 'promo',
-	});
+	}); 
 	const testimonial = await client.getEntries({ content_type: 'testimonial' });
+	const priceList = await client.getEntries({
+        content_type: 'priceList', // Fetch priceList data
+    });
 
 	return {
 		props: {
 			testimonials: testimonial.items,
 			promo: promo.items,
+			priceList: priceList.items, // Pass priceList data as a prop
 		},
 		revalidate: 1,
-	};
-}
+	}; 
+} 
 
-export default function homePage({ testimonials, promo }) {
+export default function homePage({ testimonials, promo, priceList }) {
 	return (
 		<>
-			{/* <Head>
+			 <Head>
 				<title>Next Salon | Home</title>
-			</Head> */}
+			</Head> 
 
-			<div className='home-page'>
+			 <div className='home-page'>
 				{promo.map((promo) => (
 					<Promo key={promo.sys.id} promo={promo} />
 				))}
+
+				<div className='page grid price-list'>
+								<div className='wrapper wrapper--price-list'>
+									{priceList.map((priceList) => (
+										<PriceList key={priceList.sys.id} priceList={priceList} />
+									))}
+								</div>
+							</div>
+
+
+
 				<section className='grid testimonials'>
 					<div className='wrapper wrapper--sec-header'>
 						<div className='section-header'>
@@ -48,7 +65,7 @@ export default function homePage({ testimonials, promo }) {
 						</div>
 					</div>
 
-					<div className='wrapper wrapper--testimonials'>
+					 <div className='wrapper wrapper--testimonials'>
 						<Splide
 							options={{
 								type: 'loop',
@@ -86,9 +103,9 @@ export default function homePage({ testimonials, promo }) {
 								/>
 							))}
 						</Splide>
-					</div>
+					</div> 
 				</section>
-			</div>
+			</div> 
 		</>
 	);
 }
