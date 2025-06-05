@@ -27,7 +27,7 @@ export default function Contact({}) {
 	return (
 		<>
 			<Head>
-				<title>Next Salon | {title}</title>
+				<title>DM Barbershop | {title}</title>
 			</Head>
 			<div className='page-header'>
 				<h1 className='page-title'>{title}</h1>
