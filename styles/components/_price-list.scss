@@ -2,7 +2,11 @@
 	background: #fff;
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
-	padding: 10rem 0;
+	padding: 5rem 0;
+	width: 88%;
+	//max-width: 1080px;         // Optional: set a max width
+        margin-left: auto;        // Center horizontally
+        margin-right: auto; 
 }
 
 .accordion {
@@ -18,10 +22,10 @@
 	width: 100%;
 	padding: 1.5rem 1rem;
 	margin: 0;
-	// border-bottom: 1px solid hsla(231, 20%, 14%, 0.3);
-	// &:hover {
-	// 	border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
-	// }
+	border-bottom: 1px solid hsla(231, 20%, 14%, 0.3);
+	&:hover {
+		border-bottom: 1px solid hsla(0, 0%, 0%, 0.5);
+	 }
 
 	&__section {
 		flex-shrink: 1;
