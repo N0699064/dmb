@@ -16,7 +16,7 @@ export async function getStaticProps() {
 		limit: 1,
 		'fields.slug': 'about-us',
 	});
-	const cta = await client.getEntry('5F7tVopJjX7dLdCjOVjBLh');
+	const cta = await client.getEntry('6LQIUO2yYdt7SHQ8EIPthz');
 
 	return {
 		props: {
