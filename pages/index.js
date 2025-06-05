@@ -35,7 +35,7 @@ export default function homePage({ testimonials, promo, priceList }) {
 	return (
 		<>
 			 <Head>
-				<title>Next Salon | Home</title>
+				<title>DM Barbershop | Home</title>
 			</Head> 
 
 			 <div className='home-page'>
