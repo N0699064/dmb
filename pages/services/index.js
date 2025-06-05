@@ -12,14 +12,14 @@ export async function getStaticProps() {
 	});
 
 	const service = await client.getEntries({ content_type: 'service' });
-	const page = await client.getEntries({
+	  const page = await client.getEntries({
 		content_type: 'page',
 		limit: 1,
 		'fields.slug': 'services',
-	});
+	}); 
 	const cta = await client.getEntry('2cUo5vH15P37ppzrFeHoot');
 
-	console.log('Page Data:', page); // Log the page data
+	//console.log('Page Data:', page); // Log the page dataa
 
 
 	return {
@@ -52,7 +52,7 @@ export default function Services({ services, page, cta }) {
 								Home
 							</Link>
 						</li>
-						<li className='breadcrumbs__item'>Servicess</li>
+						<li className='breadcrumbs__item'>Services</li>
 					</ul>
 				</div>
 
@@ -63,7 +63,7 @@ export default function Services({ services, page, cta }) {
 								<ServiceCard key={service.sys.id} service={service} />
 							))}
 							<CallToAction cta={cta} />
-						</div>
+						</div> 
 					</div>
 				</div>
 			</div>
