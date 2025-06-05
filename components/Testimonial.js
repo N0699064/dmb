@@ -10,12 +10,17 @@ export default function Testimonial({ testimonial }) {
       <SplideSlide>
         <div className="testimonial">
           <div className="testimonial__avatar">
+          {avatar && avatar.fields && avatar.fields.file && avatar.fields.file.url ? (
             <Image
-              src={"https:" + avatar.fields.file.url}
+              src={"https:" + avatar.fields.file.url} 
               width={avatar.fields.file.details.image.width}
               height={avatar.fields.file.details.image.height}
               loading="lazy"
             />
+          ) : (
+            // Optionally render a placeholder or nothing
+            <div className="testimonial__avatar--empty"></div>
+          )}
           </div>
 
           <p className="testimonial__comment">{comment}</p>
@@ -25,3 +30,4 @@ export default function Testimonial({ testimonial }) {
     </>
   );
 }
+
