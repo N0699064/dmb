@@ -12,18 +12,18 @@ const client = createClient({
 });
 
 export const getStaticPaths = async () => {
-	const res = await client.getEntries({ content_type: 'service' });
+    const res = await client.getEntries({ content_type: 'service' });
 
-	const paths = res.items.map((item) => {
-		return {
-			params: { slug: item.fields.slug },
-		};
-	});
+    const paths = res.items
+        .filter(item => typeof item.fields.slug === 'string' && item.fields.slug.trim() !== '')
+        .map((item) => ({
+            params: { slug: item.fields.slug }
+        }));
 
-	return {
-		paths,
-		fallback: true,
-	};
+    return {
+        paths,
+        fallback: true,
+    };
 };
 
 export async function getStaticProps({ params }) {
@@ -91,3 +91,4 @@ export default function ServiceDetails({ service }) {
 		</>
 	);
 }
+  
