@@ -17,7 +17,10 @@ export async function getStaticProps() {
 		limit: 1,
 		'fields.slug': 'services',
 	});
-	const cta = await client.getEntry('5F7tVopJjX7dLdCjOVjBLh');
+	const cta = await client.getEntry('2cUo5vH15P37ppzrFeHoot');
+
+	console.log('Page Data:', page); // Log the page data
+
 
 	return {
 		props: {
@@ -31,9 +34,9 @@ export async function getStaticProps() {
 
 export default function Services({ services, page, cta }) {
 	const [contentfulData, setContentfulData] = useState(null);
-	const pageDescription = page[0].fields.pageDescription;
-	const pageTitle = page[0].fields.title;
-	const title = pageTitle;
+	//const pageDescription = page[0].fields.pageDescription;
+	//const pageTitle = page[0].fields.title;
+	//const title = pageTitle;
 
 	return (
 		<>
@@ -49,7 +52,7 @@ export default function Services({ services, page, cta }) {
 								Home
 							</Link>
 						</li>
-						<li className='breadcrumbs__item'>Services</li>
+						<li className='breadcrumbs__item'>Servicess</li>
 					</ul>
 				</div>
 
