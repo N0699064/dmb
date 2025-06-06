@@ -68,7 +68,7 @@ export default function homePage({ testimonials, promo, priceList, services, pag
 				<div className='page'>
 									<div className='grid services'>
 										<div className='wrapper wrapper--services'>
-											{services.map((service) => (
+											{services.slice(0, 4).map((service) => (
 												<ServiceCard key={service.sys.id} service={service} />
 											))}
 											{/* <CallToAction cta={cta} /> */}
