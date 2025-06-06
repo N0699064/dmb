@@ -71,7 +71,7 @@ export default function homePage({ testimonials, promo, priceList, services, pag
 											{services.map((service) => (
 												<ServiceCard key={service.sys.id} service={service} />
 											))}
-											<CallToAction cta={cta} />
+											{/* <CallToAction cta={cta} /> */}
 										</div> 
 									</div>
 								</div>
