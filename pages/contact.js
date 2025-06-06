@@ -47,20 +47,20 @@ export default function Contact({}) {
 						<h2 className='contact-us__title'>Get In Touch</h2>
 						<p className='contact-us__description'>
 							If you have any questions or require further information on any of
-							our treatments or services, feel free to get in touch.
+							our treatments or services or private hire, feel free to get in touch.
 						</p>
 						<ul className='contact-us__details-list'>
 							<li className='contact-us__list-item'>
 								<EnvelopeSimple size={24} weight='light' color='#000' />
-								<a href='mailto: jake@weblavida.com'>hello@nextsalon.com</a>
+								<a href='mailto: deanmckenzie0212@gmail.com'>deanmckenzie0212@gmail.com</a>
 							</li>
 							<li className='contact-us__list-item'>
 								<Phone size={24} weight='light' color='#000000' />
-								(001) 12312 3452
+								(+44) 07707350750
 							</li>
 							<li className='contact-us__list-item'>
 								<MapPin size={24} weight='light' color='#000' />
-								123 Main St, Suite 200, Anytown, UK 00000
+								Regus Atterbury Lakes, Fairbourne Drive, Milton Keynes, MK109RG, UK 00000
 							</li>
 						</ul>
 					</div>
