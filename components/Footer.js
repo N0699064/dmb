@@ -24,7 +24,7 @@ export default function Footer() {
 					{/* <SocialIconsDark className={styles.social} /> */}
 					{/* <SocialIconsLight /> */}
 					<p className='footer__copy'>
-						© {new Date().getFullYear()} - DM Barbershop. All rights reserved.
+						© {new Date().getFullYear()} - DM Barbershop.
 					</p>
 
 					{/* <ul className={styles.details} role='list'>
