@@ -43,14 +43,14 @@ export default function galleryPage({ galleryItems }) {
 			</Head> */}
 
 			<div className='page-header'>
-				<h1 className='page-title'>Services</h1>
+				<h1 className='page-title'>Gallery</h1>
 				<ul className='breadcrumbs' role='list'>
 					<li className='breadcrumbs__item'>
 						<Link className='breadcrumbs__link' href='/'>
 							Home
 						</Link>
 					</li>
-					<li className='breadcrumbs__item'>Services</li>
+					<li className='breadcrumbs__item'>Gallery</li>
 				</ul>
 			</div>
 
