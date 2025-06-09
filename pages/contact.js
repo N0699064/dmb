@@ -60,7 +60,7 @@ export default function Contact({}) {
 							</li>
 							<li className='contact-us__list-item'>
 								<MapPin size={24} weight='light' color='#000' />
-								Regus Atterbury Lakes, Fairbourne Drive, Milton Keynes, MK109RG, UK 00000
+								Regus Atterbury Lakes, Fairbourne Drive, Milton Keynes, UK, MK109RG
 							</li>
 						</ul>
 					</div>
