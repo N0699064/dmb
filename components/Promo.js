@@ -10,7 +10,7 @@ export default function Promo({ promo }) {
 			<div className='promo__caption'>
 				<h1 className='promo__title'>{title}</h1>
 				<p className='promo__description'>{description}</p>
-				<a href='' className='promo__btn btn'>
+				<a href='https://www.fresha.com/a/dmbarbershop-milton-keynes-atterbury-lakes-fairbourne-drive-z1uuzwma?preview=7ff703ce-fe84-47a9-8a65-ebbd58d4694c&share&pId=2557860' className='promo__btn btn'>
 					Book Appointment
 					<Calendar size={24} />
 				</a>
