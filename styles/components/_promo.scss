@@ -18,6 +18,22 @@
 		// }
 	}
 
+	@media (max-width: 600px) {
+  .promo__image-container {
+    grid-template-columns: repeat(5, 1fr); // 4 columns for 4 images
+  }
+  .promo__image-container .promo__image:nth-child(n+6) {
+    display: none;
+  }
+}
+
+	@media (max-width: 600px) {
+  .promo,
+  .promo__image-container {
+    min-height: 43rem; // or your desired height for mobile
+  }
+}
+
 	&__image-container {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
