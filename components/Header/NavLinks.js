@@ -20,9 +20,14 @@ export default function NavLinks() {
 						? 'main-menu__item active'
 						: 'main-menu__item'
 				}>
-				<Link href='/services' className='main-menu__link link link--elara'>
-					<span>Services</span>
-				</Link>
+				<a
+				href="https://www.fresha.com/a/dmbarbershop-milton-keynes-atterbury-lakes-fairbourne-drive-z1uuzwma?preview=7ff703ce-fe84-47a9-8a65-ebbd58d4694c&share&pId=2557860"
+				className="main-menu__link link link--elara"
+				target="_blank"
+				rel="noopener noreferrer"
+				>
+				<span>Booking</span>
+				</a>
 			</li>
 			<li
 				className={
