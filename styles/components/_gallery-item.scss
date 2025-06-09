@@ -1,36 +1,61 @@
 .gallery {
-	background: #fff;
-	border-top: 1px solid #eee;
-	padding: 6rem 0;
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 6rem 0;
 
-	&__image {
-		position: relative;
-		cursor: pointer;
-		width: 280px;
-		aspect-ratio: 1/1;
-		@media (min-width: 400px) {
-			width: 320px;
-			aspect-ratio: 1/1;
-		}
+    // MOBILE: 2 images per row
+    .wrapper--gallery {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
 
-		@media (min-width: 600px) {
-			position: relative;
-			width: 450px;
-			aspect-ratio: 1/1;
-		}
-		img {
-			filter: grayscale(100%);
-			object-fit: cover;
-			transition: 0.2s ease-in;
+    // DESKTOP: revert to original layout
+    @media (min-width: 600px) {
+        .wrapper--gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
 
-			&:hover {
-				filter: grayscale(0);
-				transform: translateY(-3px);
-				box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-			}
-		}
-	}
+    &__image {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+        aspect-ratio: 1/1;
+        box-sizing: border-box;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.2s ease-in;
+
+            &:hover {
+                filter: grayscale(0);
+                transform: translateY(-3px);
+                box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    // Restore fixed widths for desktop
+    @media (min-width: 600px) {
+        &__image {
+            width: 280px;
+            @media (min-width: 900px) {
+                width: 320px;
+            }
+            @media (min-width: 1200px) {
+                width: 450px;
+            }
+        }
+    }
 }
+
+
 
 .gallery__caption {
     position: absolute;
