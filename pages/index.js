@@ -79,7 +79,7 @@ export default function homePage({ testimonials, promo, priceList, services, pag
 
 
 
-				<section className='grid testimonials'>
+				 {/* <section className='grid testimonials'>
 					<div className='wrapper wrapper--sec-header'>
 						<div className='section-header'>
 							<h2 className='section-header__title section-header__title--script'>
@@ -130,7 +130,7 @@ export default function homePage({ testimonials, promo, priceList, services, pag
 							))}
 						</Splide>
 					</div> 
-				</section>
+				</section> */}
 			</div> 
 		</>
 	);
