@@ -13,6 +13,9 @@ const GalleryImage = ({ galleryItem, handleModalOpen }) => {
 						fill
 						onClick={() => handleModalOpen(image)}
 					/>
+				   <div className="gallery__caption">
+                                         {image.fields.title}
+                                   </div>
 				</div>
 			))}
 		</>
