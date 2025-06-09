@@ -3,10 +3,13 @@ import { createClient } from 'contentful';
 import Head from 'next/head';
 import Testimonial from '../components/Testimonial';
 import Promo from '../components/Promo';
+import Image from 'next/image';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import PriceList from '../components/PriceList';
 import ServiceCard from '../components/ServiceCard';
 import CallToAction from '../components/CallToAction';
+import GalleryImage from '../components/GalleryImage';
+
 
 
  export async function getStaticProps() {
@@ -15,6 +18,7 @@ import CallToAction from '../components/CallToAction';
 		accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 	});
 
+	
 	const promo = await client.getEntries({
 		content_type: 'promo',
 	}); 
@@ -23,6 +27,8 @@ import CallToAction from '../components/CallToAction';
         content_type: 'priceList', // Fetch priceList data
     });
 
+	const gallery = await client.getEntries({ content_type: 'gallery' });
+
 	const service = await client.getEntries({ content_type: 'service' });
 		  const page = await client.getEntries({
 			content_type: 'page',
@@ -30,7 +36,9 @@ import CallToAction from '../components/CallToAction';
 			'fields.slug': 'services',
 		}); 
 		const cta = await client.getEntry('2cUo5vH15P37ppzrFeHoot');
-	
+
+		
+
 
 	return {
 		props: {
@@ -40,12 +48,24 @@ import CallToAction from '../components/CallToAction';
 			services: service.items,
 			page: page.items,
 			cta: cta,
+			galleryItems: gallery.items,
 		},
 		revalidate: 1,
 	}; 
 } 
 
-export default function homePage({ testimonials, promo, priceList, services, page, cta }) {
+export default function homePage({ testimonials, promo, priceList, services, page, cta, galleryItems }) {
+	const [modalOpen, setModalOpen] = useState(false);
+		const [modalImage, setModalImage] = useState(null);
+	
+		const handleModalOpen = (image) => {
+			setModalImage(image);
+			setModalOpen(true);
+		};
+	
+		const handleModalClose = () => {
+			setModalOpen(false);
+		};
 	return (
 		<>
 			 <Head>
@@ -65,28 +85,61 @@ export default function homePage({ testimonials, promo, priceList, services, pag
 								</div>
 							</div>
 
-	
-								 {/* </div> <div className='page'>
+							{modalOpen && modalImage && (
+											<div className='modal-overlay' onClick={handleModalClose}>
+												<div className='modal-content' onClick={(e) => e.stopPropagation()}>
+													<button className='modal__close-button' onClick={handleModalClose}>
+														X
+													</button>
+													<div className='modal__image-container'>
+														<Image
+															src={'https:' + modalImage.fields.file.url}
+															alt={modalImage.fields.title}
+															fill
+															loading='lazy'
+														/>
+													</div>
+							
+													<div className='modal-caption'>
+														<p>{modalImage.fields.title}</p>
+													</div>
+												</div>
+											</div>
+										)}
+
+										
+										<div className='page grid gallery'>
+											<div className='wrapper wrapper--gallery'>
+												{galleryItems.map((item) => (
+													<GalleryImage
+														key={item.sys.id}
+														galleryItem={galleryItems}
+														handleModalOpen={handleModalOpen}
+													/>
+												))}
+											</div>
+										</div>
+							
+
+				{/* <div className='page'>
 									<div className='grid services'>
 										<div className='wrapper wrapper--services'>
 											{services.slice(0, 4).map((service) => (
 												<ServiceCard key={service.sys.id} service={service} />
 											))}
-											 <CallToAction cta={cta} />
+											 //<CallToAction cta={cta} />
 										</div> 
 									</div>
 								</div> */}
 
-
-
-				 {/* <section className='grid testimonials'>
+				{/* <section className='grid testimonials'>
 					<div className='wrapper wrapper--sec-header'>
 						<div className='section-header'>
 							<h2 className='section-header__title section-header__title--script'>
-								Client Testimonials
+								Welcome to DM Barbershop
 							</h2>
 							<p className='section-header__subtitle'>
-								What our clients say about us.
+								 DM Barbershop.
 							</p>
 						</div>
 					</div>
