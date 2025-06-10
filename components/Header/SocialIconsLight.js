@@ -9,7 +9,7 @@ export default function SocialIconsLight() {
 		<ul className='social-icons' role='list'>
 			<li className='social-icons__item'>
 				<Link
-					href='https://instagram.com/'
+					href='https://www.instagram.com/dmbarbershop_1?igsh=eGZ6ZWV4cTV6b3Zt'
 					target='_blank'
 					className='social-icons__link'>
 					<LogoInstagram size={30} />
@@ -17,7 +17,7 @@ export default function SocialIconsLight() {
 			</li>
 			<li className='social-icons__item'>
 				<Link
-					href='https://www.facebook.com/'
+					href='https://www.tiktok.com/'
 					target='_blank'
 					className='social-icons__link'>
 					{/* <FacebookLogo size={32} color='black' weight='fill' /> */}
