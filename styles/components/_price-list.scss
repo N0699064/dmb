@@ -9,6 +9,12 @@
         margin-right: auto; 
 }
 
+@media (max-width: 600px) {
+  .price-list {
+    padding-bottom: 1rem; // or 0 if you want no padding at all
+  }
+}
+
 .accordion {
 	background: hsla(0, 0%, 100%, 0.78);
 	display: flex;
