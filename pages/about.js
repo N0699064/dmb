@@ -75,7 +75,7 @@ export default function About({ page, cta }) {
                         {/* <CallToAction cta={cta} /> */}
                         <div className="about-mobile-flex">
                             <img
-                                src="/images/deanMckenzie.jpeg"
+                                src="/images/deanMckenzie.jpg"
                                 alt="About Us"
                                 className="about-mobile-image"
                                 style={{
